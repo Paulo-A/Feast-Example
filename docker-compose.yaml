@@ -1,0 +1,46 @@
+version: '2.1'
+
+services:
+  redis:
+    image: redis:7.0.4-alpine3.16
+    restart: always
+    ports:
+      - 6379:6379
+    volumes: 
+      - redis:/data
+    networks:
+      - feast-net
+  
+  postgres:
+    image: postgres:12.1
+    ports:
+      - 5432:5432
+    hostname: pg-host
+    environment:
+      - POSTGRES_PASSWORD=mypasswd
+    volumes: 
+      - data:/var/lib/postgresql/data
+    networks:
+      - feast-net
+
+  feast-core:
+    build: core/.
+    image: feast-core
+    tty: true
+    volumes:
+      - .:/feast-core
+    ports:
+      - 9200:9200
+    hostname: feast-core-host
+    networks:
+      - feast-net
+    depends_on:
+      - redis
+      - postgres
+
+volumes:
+  redis:
+  data:
+networks:
+  feast-net:
+    driver: bridge
