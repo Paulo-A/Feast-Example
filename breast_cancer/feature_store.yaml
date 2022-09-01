@@ -1,0 +1,16 @@
+project: feature_repo
+registry:
+  registry_type: sql
+  path: postgresql://postgres:mypasswd@localhost:5432/postgres
+provider: local
+offline_store:
+  type: postgres
+  host: localhost
+  port: 5432
+  database: postgres
+  db_schema: feast
+  user: postgres
+  password: mypasswd
+online_store:
+  type: redis
+  connection_string: "localhost:6379"
