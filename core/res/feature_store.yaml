@@ -1,5 +1,7 @@
 project: feature_repo
-registry: data/registry.db
+registry:
+  registry_type: sql
+  path: postgresql://postgres:mypasswd@pg-host:5432/
 provider: local
 offline_store:
   type: postgres

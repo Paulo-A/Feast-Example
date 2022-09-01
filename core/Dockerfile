@@ -1,13 +1,13 @@
 FROM python:3.7-slim
 
-RUN pip install feast[redis]
+COPY ./requirements.txt ./
 
-RUN pip install psycopg2-binary
+RUN pip install -r requirements.txt
 
-RUN feast init feature_repo
+RUN feast init -m feature_repo
 
 WORKDIR "./feature_repo"
 
-COPY ./res/feature_store.yaml ./
+COPY ./feature_definitions/ ./
 
-RUN feast apply
+COPY ./res/feature_store.yaml ./
