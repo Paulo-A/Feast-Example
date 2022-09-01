@@ -20,11 +20,11 @@ https://kedion.medium.com/creating-a-feature-store-with-feast-part-1-37c380223e2
 
     1. Build image from /breast_cancer/Dockerfile:
 
-`docker build -t breast_cancer_example ./breast_cancer/Dockerfile`
+    `docker build -t breast_cancer_example ./breast_cancer/Dockerfile`
 
     2. Run example container:
 
-`docker run --network feast-example_feast-net breast_cancer_example`
+    `docker run --network feast-example_feast-net breast_cancer_example`
 
 3. Feast apply to create features inside repository:
 
