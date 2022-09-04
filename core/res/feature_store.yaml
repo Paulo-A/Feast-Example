@@ -1,4 +1,5 @@
 project: feature_repo
+entity_key_serialization_version: 2
 registry:
   registry_type: sql
   path: postgresql://postgres:mypasswd@pg-host:5432/
