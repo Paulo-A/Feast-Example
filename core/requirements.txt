@@ -1,2 +1,2 @@
-feast[redis]==0.22.4
+feast[redis]==0.24.0
 psycopg2-binary==2.9.3
