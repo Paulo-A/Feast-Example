@@ -20,6 +20,7 @@ engine.execute(f'CREATE TABLE {schema_name}.{table_name1}(\
         "mean area" float,\
         "mean smoothness" float,\
         "event_timestamp" timestamp without time zone,\
+        "created_timestamp" timestamp without time zone,\
         "patient_id" bigint PRIMARY KEY\
     )'
 )
@@ -32,6 +33,7 @@ engine.execute(f'CREATE TABLE {schema_name}.{table_name2}(\
         "mean symmetry" float,\
         "mean fractal dimension" float,\
         "event_timestamp" timestamp without time zone,\
+        "created_timestamp" timestamp without time zone,\
         "patient_id" bigint PRIMARY KEY\
     )'
 )
@@ -46,6 +48,7 @@ engine.execute(f'CREATE TABLE {schema_name}.{table_name3}(\
         "compactness error" float,\
         "concavity error" float,\
         "event_timestamp" timestamp without time zone,\
+        "created_timestamp" timestamp without time zone,\
         "patient_id" bigint PRIMARY KEY\
     )'
 )
@@ -66,6 +69,7 @@ engine.execute(f'CREATE TABLE {schema_name}.{table_name4}(\
         "worst symmetry" float,\
         "worst fractal dimension" float,\
         "event_timestamp" timestamp without time zone,\
+        "created_timestamp" timestamp without time zone,\
         "patient_id" bigint PRIMARY KEY\
     )'
 )
@@ -74,6 +78,7 @@ engine.execute(f'DROP TABLE IF EXISTS {schema_name}.{table_target};')
 engine.execute(f'CREATE TABLE {schema_name}.{table_target}(\
         "target" bigint,\
         "event_timestamp" timestamp without time zone,\
+        "created_timestamp" timestamp without time zone,\
         "patient_id" int PRIMARY KEY\
     )'
 )
